@@ -10,13 +10,14 @@ const pasos = [
 
 export default function Pasos() {
     const router = useRouter();
+    const pathname = usePathname();
 
     const calcularProgreso = () => {
         let valor;
 
-        if (usePathname() === "/") {
+        if (pathname === "/") {
             valor = 10;
-        } else if (usePathname() === "/resumen") {
+        } else if (pathname === "/resumen") {
             valor = 50;
         } else {
             valor = 100;
@@ -27,7 +28,7 @@ export default function Pasos() {
 
     return (
         <>
-            {usePathname() !== "/admin" && (
+            {pathname !== "/admin" && (
                 <>
                     <div className="flex justify-between mb-5">
                         {pasos.map((paso) => (
